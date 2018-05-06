@@ -83,6 +83,12 @@ public class EnviroPusher : MonoBehaviour {
     [Tooltip("How fast the Ground scrolls in comparison.")]
     public float GroundScrollExponent = 0.3f;
 
+    [Tooltip("How fast the Tunnel scrolls in comparison.")]
+    public float TunnelScrollExponent = 0.6f;
+
+    [Tooltip("The wireframe to move when the tunnel is active")]
+    public Renderer tunnelWireframe;
+
   
 
     // Use this for initialization
@@ -154,6 +160,10 @@ public class EnviroPusher : MonoBehaviour {
         //lets make the ground scroll
         float offsetG = Time.time * (BasePushSpeed * GroundScrollExponent);
         Ground.GetComponent<Renderer>().material.SetTextureOffset("_GridTex", new Vector2(0, -offsetG));
+            
+        float offsetT = Time.time * (BasePushSpeed * TunnelScrollExponent);
+        tunnelWireframe.material.SetTextureOffset("_GridTex", new Vector2(0, -offsetT));
+        Debug.Log("Should be scrolling tunnel");
     }
 
     //this move all objects that are part of the world
