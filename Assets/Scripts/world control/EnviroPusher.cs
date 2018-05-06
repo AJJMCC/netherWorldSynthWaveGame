@@ -33,6 +33,7 @@ public class EnviroPusher : MonoBehaviour {
     public GameObject[] TreeSpawnPositions;
     public GameObject[] TreePrefabs;
     public GameObject[] DrivingTreePrefabs;
+    public GameObject[] DrivingTreeSpawnPositions;
     public float TimeBetweenTrees;
     private float RealTreeTime;
     private List<GameObject> Trees;
@@ -131,9 +132,9 @@ public class EnviroPusher : MonoBehaviour {
         //if we are driving, then spawn trees
       if (!Driving)
         {
-            TreeSpawnTimer();
+            
         }
-      
+        TreeSpawnTimer();
 
         //spawn timers
         CarSpawnTimer();
@@ -215,7 +216,7 @@ public class EnviroPusher : MonoBehaviour {
         {
             if (Driving)
             {
-                SpawnInEverySpawnPoint(DrivingTreePrefabs, TreeSpawnPositions, Trees, true, 0.5f, 1);
+                SpawnInEverySpawnPoint(DrivingTreePrefabs, DrivingTreeSpawnPositions, Trees, true, 0.5f, 1);
                 RealTreeTime = TimeBetweenTrees / 2;
             }
             else
@@ -226,6 +227,8 @@ public class EnviroPusher : MonoBehaviour {
         }
        
     }
+
+
 
     //this spawns mountains
     void MtSpawnTimer()

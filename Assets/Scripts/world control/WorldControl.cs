@@ -19,6 +19,8 @@ public class WorldControl : MonoBehaviour {
     public float RoadPassiveWidth;
     public float RoadDriveWidth;
 
+   
+
     //control the tunnel here
     public GameObject Tunnel;
 
@@ -27,6 +29,12 @@ public class WorldControl : MonoBehaviour {
     public GameObject[] ObjectsToLower;
     public float PassiveHeight;
     public float DriveHeight;
+
+    public float Set2PassiveHeight;
+
+    [Tooltip("everything that appears from the ground")]
+    public GameObject[] ObjectsToRaise;
+
     [Tooltip("how long it takes to make the world transition to drive mode")]
     public float TransitionEffectTime;
 
@@ -78,7 +86,16 @@ public class WorldControl : MonoBehaviour {
         foreach (GameObject I in ObjectsToLower)
         {if (!passive)
             StartCoroutine(SinkSideWalks(I, DriveHeight, PassiveHeight,  TransitionEffectTime));
+            Debug.Log("start raising sides");
         }
+
+        foreach (GameObject I in ObjectsToRaise)
+        {
+            if (!passive)
+                StartCoroutine(RaiseSideWalks(I, DriveHeight + 0.2f, Set2PassiveHeight, TransitionEffectTime));
+            Debug.Log("start lowering outer sides");
+        }
+
     }
 
     public void WorldDriveResponce()
@@ -116,6 +133,13 @@ public class WorldControl : MonoBehaviour {
           
             StartCoroutine(SinkSideWalks(I,PassiveHeight,DriveHeight,TransitionEffectTime));
         }
+
+        foreach (GameObject I in ObjectsToRaise)
+        {
+
+            StartCoroutine(RaiseSideWalks(I, Set2PassiveHeight, DriveHeight + 0.2f, TransitionEffectTime));
+        }
+        
     }
 
     IEnumerator WidenTunnel(GameObject _Tunnel, float StartWidth, float EndWidth, float TIme)
@@ -149,6 +173,23 @@ public class WorldControl : MonoBehaviour {
     }
 
     IEnumerator SinkSideWalks(GameObject Obj, float StartY, float EndY, float TIme)
+    {
+        float Timer = 0.0f;
+
+        float Yvalue = StartY;
+        while (Timer <= TIme)
+        {
+            Yvalue = Mathf.Lerp(StartY, EndY, (Timer / TIme));
+
+            Obj.transform.localPosition = new Vector3(Obj.transform.localPosition.x, Yvalue, Obj.transform.localPosition.z);
+
+            Timer += Time.deltaTime;
+
+            yield return null;
+        }
+    }
+
+    IEnumerator RaiseSideWalks(GameObject Obj, float StartY, float EndY, float TIme)
     {
         float Timer = 0.0f;
 

@@ -67,16 +67,16 @@ public class PointSystem : MonoBehaviour {
         //}
 
 
-        for (int I = 0; I < CurrentPoints.Count; I++)
-        {
-            if (CurrentPoints[I].transform.position.z <= KillZPos)
-            {
-                CurrentPoints.Remove(CurrentPoints[I]);
-                Destroy(CurrentPoints[I], 2);
+        //for (int I = 0; I < CurrentPoints.Count; I++)
+        //{
+        //    if (CurrentPoints[I].transform.position.z <= KillZPos)
+        //    {
+        //        CurrentPoints.Remove(CurrentPoints[I]);
+        //        Destroy(CurrentPoints[I], 2);
 
 
-            }
-        }
+        //    }
+        //}
     }
 
     void MtSpawnTimer()
