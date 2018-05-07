@@ -81,6 +81,7 @@ public class WorldControl : MonoBehaviour {
         {
             StartCoroutine(WidenRoad(Road, RoadDriveWidth, RoadPassiveWidth, TransitionEffectTime));
             StartCoroutine(WidenTunnel(Tunnel, 1, 0, TransitionEffectTime));
+            Invoke("FullyFlattenTUnnel", TransitionEffectTime);
         }
 
         foreach (GameObject I in ObjectsToLower)
@@ -125,7 +126,7 @@ public class WorldControl : MonoBehaviour {
     {
         StartCoroutine(WidenTunnel(Tunnel, 0, 1, TransitionEffectTime));
         StartCoroutine(WidenRoad(Road, RoadPassiveWidth, RoadDriveWidth, TransitionEffectTime));
-
+   
         
       //  Debug.Log("should have started the coroutine");
         foreach(GameObject I in ObjectsToLower)
@@ -155,6 +156,11 @@ public class WorldControl : MonoBehaviour {
 
             yield return null;
         }
+    }
+
+    void FullyFlattenTUnnel()
+    {
+        Tunnel.transform.localScale = new Vector3(Tunnel.transform.localScale.x, 0, 0);
     }
 
     IEnumerator WidenRoad(GameObject road, float StartWidth, float EndWidth, float TIme)
