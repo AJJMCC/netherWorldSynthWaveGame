@@ -47,6 +47,10 @@ public class ModeSwitchControl : MonoBehaviour {
         CarGod.GetComponent<OverallCarControl>().Turnon();
         CarGod.GetComponent<CameraController>().DriveCar = false;
 
+        //This was me calling the sounds from the audiomanager
+        AudioManager.Instance.Play("Theme");
+        AudioManager.Instance.Stop("Driving theme");
+
         WorldGod.GetComponent<WorldControl>().WorldPassiveResponce();
         isPassive = true;
 
@@ -61,6 +65,10 @@ public class ModeSwitchControl : MonoBehaviour {
             CarGod.GetComponent<CameraController>().DriveCar = true;
 
             WorldGod.GetComponent<WorldControl>().WorldDriveResponce();
+
+            //This was me calling the sounds from the audiomanager
+            AudioManager.Instance.Stop("Theme");
+            AudioManager.Instance.Play("Driving theme");
             isPassive = false;
         }
       
