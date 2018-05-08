@@ -54,7 +54,7 @@ public class PointSystem : MonoBehaviour {
 		if (Driving)
         {
             MovePoints();
-            MtSpawnTimer();
+            PtSpawnTimer();
           
         }
 	}
@@ -79,7 +79,7 @@ public class PointSystem : MonoBehaviour {
         //}
     }
 
-    void MtSpawnTimer()
+    void PtSpawnTimer()
     {
         RealPointTime -= Time.deltaTime;
 
@@ -107,10 +107,11 @@ public class PointSystem : MonoBehaviour {
         CurrentPoints.Remove(PointHit);
         Destroy(PointHit);
     }
-    public void PlayerCollectedPoint(GameObject POintHit)
+
+    public void PlayerCollectedPoint(GameObject POintHit,float TimeToKill)
     {
         CurrentPoints.Remove(POintHit);
-        Destroy(POintHit);
+        Destroy(POintHit, TimeToKill);
       
       
        

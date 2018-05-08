@@ -90,7 +90,7 @@ public class OverallCarControl : MonoBehaviour {
             RotateToMatch();
             Turn();
           
-            Debug.Log("Shouldturn");
+          //  Debug.Log("Shouldturn");
         }
         else if (IsCarPassive)
         {
@@ -102,7 +102,7 @@ public class OverallCarControl : MonoBehaviour {
                 if (!IsCarRight && Movecunt)
                 {
                     StopAllCoroutines();
-                    Debug.Log("should move right");
+                 //   Debug.Log("should move right");
                     StartCoroutine(Move(LeftX, RightX, transitionTime, 0, TurnAngle));
                     Invoke("CarMovedRight", transitionTime);
                     IsCarRight = true;
@@ -113,7 +113,7 @@ public class OverallCarControl : MonoBehaviour {
                 {
 
                     StopAllCoroutines();
-                    Debug.Log("should move left");
+                  //  Debug.Log("should move left");
                     StartCoroutine(Move(RightX, LeftX, transitionTime, 0, -TurnAngle));
                     Invoke("CarMovedleft", transitionTime);
                     IsCarRight = false;
@@ -155,13 +155,13 @@ public class OverallCarControl : MonoBehaviour {
     //what position is the car on after we switch
     void CarMovedleft()
     {
-       Debug.Log(IsCarRight);
+      // Debug.Log(IsCarRight);
         Movecunt = true;
     }
     //what position is the car on after we switch
     void CarMovedRight()
     {
-        Debug.Log(IsCarRight);
+        //Debug.Log(IsCarRight);
         Movecunt = true;
     }
 
@@ -169,7 +169,7 @@ public class OverallCarControl : MonoBehaviour {
     //reset when passive starts
     IEnumerator Reset(float _RightX , float time)
     {
-        Debug.Log("car reset");
+        //Debug.Log("car reset");
         float timer = 0.0f;
         while (timer <= time)
         {

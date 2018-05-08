@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class EnviroPusher : MonoBehaviour {
-
+    public static EnviroPusher Instance;
 
     //this is the speed we change 
     private float BasePushSpeed;
@@ -95,7 +95,7 @@ public class EnviroPusher : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //BasePushSpeed = GetComponent<WorldControl>().RealSpeed;
-
+        Instance = this;
         //this just instantiates all of our lists
         Trees = new List<GameObject>();
         Mountains = new List<GameObject>();
@@ -164,7 +164,7 @@ public class EnviroPusher : MonoBehaviour {
             
         float offsetT = Time.time * (BasePushSpeed * TunnelScrollExponent);
         tunnelWireframe.material.SetTextureOffset("_GridTex", new Vector2(0, -offsetT));
-        Debug.Log("Should be scrolling tunnel");
+       // Debug.Log("Should be scrolling tunnel");
     }
 
     //this move all objects that are part of the world
@@ -227,8 +227,6 @@ public class EnviroPusher : MonoBehaviour {
         }
        
     }
-
-
 
     //this spawns mountains
     void MtSpawnTimer()
@@ -313,7 +311,7 @@ public class EnviroPusher : MonoBehaviour {
                 StartCoroutine(ScaleDown(Jets[I], 2));
                 Destroy(Jets[I], 2);
                 Jets.Remove(Jets[I]);
-                Debug.Log("KilledJet");
+               // Debug.Log("KilledJet");
             }
         }
 
@@ -324,7 +322,7 @@ public class EnviroPusher : MonoBehaviour {
                 StartCoroutine(ScaleDown(Trees[I], 2));
                 Destroy(Trees[I], 2);
                 Trees.Remove(Trees[I]);
-                Debug.Log("KilledTree");
+               // Debug.Log("KilledTree");
             }
         }
 
@@ -347,7 +345,7 @@ public class EnviroPusher : MonoBehaviour {
                 StartCoroutine(ScaleDown(Mountains[I], 7));
                 Destroy(Mountains[I], 7);
                 Mountains.Remove(Mountains[I]);
-                Debug.Log("KilledCar");
+               // Debug.Log("KilledCar");
             }
         }
 
@@ -358,7 +356,7 @@ public class EnviroPusher : MonoBehaviour {
                 StartCoroutine(ScaleDown(Buildings[I], 7));
                 Destroy(Buildings[I], 7);
                 Buildings.Remove(Buildings[I]);
-                Debug.Log("KilledCar");
+                //Debug.Log("KilledCar");
             }
         }
     }
@@ -396,7 +394,12 @@ public class EnviroPusher : MonoBehaviour {
 
   
 
-   
+    public void PlayerhitCarWhileDriving(GameObject CarHit,float TimeTOWait)
+    {
+        Debug.Log("apparently we hit a car");
+        CurrentCars.Remove(CarHit);
+        Destroy(CarHit, TimeTOWait);
+    }
 
    
 

@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 114215998745243974}
   - component: {fileID: 136858892372963304}
   - component: {fileID: 54737902713373146}
-  - component: {fileID: 114242624844130136}
   m_Layer: 0
   m_Name: PointMarker
   m_TagString: Exploder
@@ -238,21 +237,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75636dd5773f80d43bf837e38f855238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotSpeed: 3
+  RotSpeed: 4
   Child: {fileID: 1621977565510096}
   MeshObjects: []
   KillPos: -300
---- !u!114 &114242624844130136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1299138921025564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3755a18fce205a24ba1cda25853e801c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  TimeForDeathBlip: 0.15
+  ExpandRate: 10
 --- !u!136 &136858892372963304
 CapsuleCollider:
   m_ObjectHideFlags: 1

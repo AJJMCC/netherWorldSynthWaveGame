@@ -87,14 +87,14 @@ public class WorldControl : MonoBehaviour {
         foreach (GameObject I in ObjectsToLower)
         {if (!passive)
             StartCoroutine(SinkSideWalks(I, DriveHeight, PassiveHeight,  TransitionEffectTime));
-            Debug.Log("start raising sides");
+           // Debug.Log("start raising sides");
         }
 
         foreach (GameObject I in ObjectsToRaise)
         {
             if (!passive)
                 StartCoroutine(RaiseSideWalks(I, DriveHeight + 0.2f, Set2PassiveHeight, TransitionEffectTime));
-            Debug.Log("start lowering outer sides");
+           // Debug.Log("start lowering outer sides");
         }
 
     }
@@ -120,6 +120,7 @@ public class WorldControl : MonoBehaviour {
         passive = false;
         //turn the cars off
     }
+
 
 
     void OurOwnDriveStuff()
@@ -212,18 +213,18 @@ public class WorldControl : MonoBehaviour {
         }
     }
 
-    IEnumerator OpenTunnel(GameObject Obj, float StartZ, float EndZ, float TIme)
-    {
-        float Timer = 0.0f;
-        while (Timer <= TIme)
-        {
-        //    Debug.Log("should be widening road");
+    //IEnumerator OpenTunnel(GameObject Obj, float StartZ, float EndZ, float TIme)
+    //{
+    //    float Timer = 0.0f;
+    //    while (Timer <= TIme)
+    //    {
+    //    //    Debug.Log("should be widening road");
 
-            Obj.transform.localScale = new Vector3(Obj.transform.localScale.x, Obj.transform.localScale.y,Mathf.Lerp(StartZ, EndZ, (TIme / TIme)));
+    //        Obj.transform.localScale = new Vector3(Obj.transform.localScale.x, Obj.transform.localScale.y,Mathf.Lerp(StartZ, EndZ, (TIme / TIme)));
 
-            TIme += Time.deltaTime;
+    //        TIme += Time.deltaTime;
 
-            yield return null;
-        }
-    }
+    //        yield return null;
+    //    }
+    //}
 }

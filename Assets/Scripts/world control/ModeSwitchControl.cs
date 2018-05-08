@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ModeSwitchControl : MonoBehaviour {
+    public static ModeSwitchControl Instance;
 
     public float TimeTillPassiveShift;
     float timechecker;
@@ -14,6 +15,7 @@ public class ModeSwitchControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Instance = this;
         PassiveActivate();
 
     }
@@ -28,7 +30,7 @@ public class ModeSwitchControl : MonoBehaviour {
 
             if (timechecker >= TimeTillPassiveShift)
             {
-                Debug.Log("becomepassive");
+                //Debug.Log("becomepassive");
                 PassiveActivate();
                 timechecker = 0;
                 isPassive = true;
@@ -40,9 +42,11 @@ public class ModeSwitchControl : MonoBehaviour {
 
 	}
 
-    void PassiveActivate()
+    public void PassiveActivate()
     {
-        
+        Debug.Log("becomepassive");
+        timechecker = 0;
+        isPassive = true;
         //once we hit passive we run this function
         CarGod.GetComponent<OverallCarControl>().Turnon();
         CarGod.GetComponent<CameraController>().DriveCar = false;
