@@ -11,6 +11,7 @@ public class ModeSwitchControl : MonoBehaviour {
 
     public GameObject CarGod;
     public GameObject WorldGod;
+    public GameObject _UiGod;
     
 
 	// Use this for initialization
@@ -49,13 +50,18 @@ public class ModeSwitchControl : MonoBehaviour {
         isPassive = true;
         //once we hit passive we run this function
         CarGod.GetComponent<OverallCarControl>().Turnon();
+
         CarGod.GetComponent<CameraController>().DriveCar = false;
+
+        _UiGod.GetComponent<UIGod>().UIPassiveResponce();
+
+        WorldGod.GetComponent<WorldControl>().WorldPassiveResponce();
 
         //This was me calling the sounds from the audiomanager
         AudioManager.Instance.Play("Theme");
         AudioManager.Instance.Stop("Driving theme");
 
-        WorldGod.GetComponent<WorldControl>().WorldPassiveResponce();
+       
         isPassive = true;
 
     }
@@ -67,6 +73,8 @@ public class ModeSwitchControl : MonoBehaviour {
             //when the player starts driving this function activates (controlled by the car)
          
             CarGod.GetComponent<CameraController>().DriveCar = true;
+
+            _UiGod.GetComponent<UIGod>().UIDriveResponce();
 
             WorldGod.GetComponent<WorldControl>().WorldDriveResponce();
 
