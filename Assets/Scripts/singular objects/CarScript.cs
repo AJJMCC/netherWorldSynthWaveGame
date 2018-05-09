@@ -38,6 +38,7 @@ public class CarScript : MonoBehaviour {
         if (other.tag == "Car" && !TriggeredByCar)
         {
             Debug.Log("HitCar");
+            AudioManager.Instance.Play("Crash");
             Invoke("TellControlWeHitACar", TimeTillTriggerPassive);
             EnviroPusher.Instance.PlayerhitCarWhileDriving(this.gameObject, TimeTillTriggerPassive);
             TriggeredByCar = true;

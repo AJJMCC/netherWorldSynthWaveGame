@@ -9,9 +9,6 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
     //how long it takes to fade out the previous sound
-    public float fadeTime;
-    //check for if fade out enabled
-    public bool doesFade;
 
     // Use this for initialization
     void Awake()
@@ -62,8 +59,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
         //checks to see if fade is enabled, if it is fade it out vice versa...
-        if (doesFade)
-            StartCoroutine(FadeOut (s.source, fadeTime));
+        if (s.doesFade)
+            StartCoroutine(FadeOut (s.source, s.fadeTime));
         else
             s.source.Stop();
     }

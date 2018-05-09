@@ -18,6 +18,10 @@ public class Sound {
 
     public bool loop;
 
+    public bool doesFade;
+
+    public float fadeTime;
+
     /* [Range(0f, 1f)]
     public float spatialBlend; */
 }

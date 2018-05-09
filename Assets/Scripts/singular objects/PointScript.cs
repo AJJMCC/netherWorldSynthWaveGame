@@ -60,6 +60,7 @@ public class PointScript : MonoBehaviour {
       if (other.tag == "Car" && !TriggeredByCar)
         {
             RotSpeed = RotSpeed * 3;
+            AudioManager.Instance.Play("Points");
             PointSystem.Instance.PlayerCollectedPoint(this.gameObject, TimeForDeathBlip);
             Expand = true;
             TriggeredByCar = true;
