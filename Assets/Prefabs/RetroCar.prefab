@@ -1479,7 +1479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebcbeff64da7574188dae502dd1d72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeTillTriggerPassive: 0.5
+  TimeTillTriggerPassive: 1
+  TimeTillKillCar: 0.5
   DeathRotSpeed: 350
   DeathRiseSpeed: 10
   DeathMaterial: {fileID: 2100000, guid: ddc371046b6a4bf4582be952803b2c70, type: 2}

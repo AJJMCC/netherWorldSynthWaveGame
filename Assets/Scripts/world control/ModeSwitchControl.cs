@@ -43,6 +43,20 @@ public class ModeSwitchControl : MonoBehaviour {
 
 	}
 
+
+    public void PlayerHitCar_GodTierResponce(GameObject CarHit, float TimeWeWait)
+    {
+       //Activate GLitches
+
+       //BringUpFailSign
+       _UiGod.GetComponent<UIGod>().PlayerFailed();
+       
+        //updateScore
+       Invoke("PassiveActivate", TimeWeWait);
+
+    }
+
+
     public void PassiveActivate()
     {
         Debug.Log("becomepassive");

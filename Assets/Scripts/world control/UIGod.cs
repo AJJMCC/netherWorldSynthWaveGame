@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIGod : MonoBehaviour {
-
+    public static UIGod Instance;
     private bool Passive;
 
     //fuck with the top text about starting the drive! visually!
@@ -28,8 +28,6 @@ public class UIGod : MonoBehaviour {
     //fuck with the highscore text! visually!
 
     public Material ScoreTextMaterial;
-
-
     public RectTransform HighScoreText;
     public Vector3 HighScoreCruisingPosition;
     public Vector3 HighScoreDrivingPosition;
@@ -38,12 +36,37 @@ public class UIGod : MonoBehaviour {
     public float HighScoreEndscale;
 
     public float PingPongTime;
-    
 
-	// Use this for initialization
-	void Start () {
+    //fuck with the currentscore text! visually!
+
+    public RectTransform CurrentScoreText;
+    public Vector3 CurrentScoreCruisingPosition;
+    public Vector3 CurrentScoreDrivingPosition;
+
+    public float CurrentScoreStartscale;
+    public float CurrentScoreEndscale;
+
+ 
+
+    // store the points 
+
+    float PointsThisRun;
+
+    float TheHighScore;
+
+
+
+
+
+
+
+    // Use this for initialization
+    void Start ()
+    {
+        Instance = this;
         RealTimeBetweenTurns = TimeBetweenTurns;
         RealTurnAngle = TurnAngle;
+        PointsThisRun = 0;
     }
 	
 	// Update is called once per frame
@@ -53,7 +76,8 @@ public class UIGod : MonoBehaviour {
         {
             CruiseTextRotate();
         }
-	}
+        ScoreTextMaterial.SetColor("_Color", Color.Lerp(Color.white, new Color32(255, 255, 255, 70), Mathf.PingPong(Time.time, PingPongTime)));
+    }
 
     void CruiseTextRotate()
     {
@@ -67,23 +91,53 @@ public class UIGod : MonoBehaviour {
             Debug.Log("Should have turned the thing");
         }
 
-        ScoreTextMaterial.SetColor("_Color", Color.Lerp(Color.white, new Color32(255,255,255,70), Mathf.PingPong(Time.time, PingPongTime)));
+       
 
     }
+
+
+    public void PlayerFailed()
+    {
+
+    }
+
+    public void PointCollected()
+    {
+        PointsThisRun++;
+        CurrentScoreText.Find("CScore Text").GetComponent<Text>().text = "Current Score " + PointsThisRun;
+    }
+
+    void UpdateHighScore()
+    {
+
+    }
+
+
 
     public void UIPassiveResponce()
     {
         Passive = true;
         StartCoroutine(MoveText(CruisingTextParent, DrivingPosition, CruisingPosition, Endscale, Startscale, TransitionTime));
         StartCoroutine(MoveText(HighScoreText, HighScoreDrivingPosition, HighScoreCruisingPosition, HighScoreEndscale, HighScoreStartscale, TransitionTime));
+        StartCoroutine(MoveText(CurrentScoreText, CurrentScoreDrivingPosition, CurrentScoreCruisingPosition, CurrentScoreEndscale, CurrentScoreStartscale, TransitionTime));
+        if (PointsThisRun > TheHighScore)
+        {
+            UpdateHighScore();
+        }
     }
 
     public void UIDriveResponce()
     {
+        PointsThisRun = 0;
         Passive = false;
-        StartCoroutine(MoveText(CruisingTextParent, CruisingPosition, DrivingPosition, Startscale,Endscale,TransitionTime));
+        StartCoroutine(MoveText(CruisingTextParent, CruisingPosition, DrivingPosition, Startscale, Endscale, TransitionTime));
         StartCoroutine(MoveText(HighScoreText, HighScoreCruisingPosition, HighScoreDrivingPosition, HighScoreStartscale, HighScoreEndscale, TransitionTime));
+        StartCoroutine(MoveText(CurrentScoreText, CurrentScoreCruisingPosition, CurrentScoreDrivingPosition, CurrentScoreStartscale, CurrentScoreEndscale, TransitionTime));
+        CurrentScoreText.Find("CScore Text").GetComponent<Text>().text = "Current Score " + PointsThisRun;
+
+
     }
+
 
     IEnumerator MoveText(RectTransform CruiseObj, Vector3 start, Vector3 end, float StartScale,float EndScale, float TimeTaken)
     {

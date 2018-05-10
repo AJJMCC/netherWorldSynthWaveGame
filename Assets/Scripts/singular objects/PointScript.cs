@@ -62,6 +62,7 @@ public class PointScript : MonoBehaviour {
             RotSpeed = RotSpeed * 3;
             AudioManager.Instance.Play("Points");
             PointSystem.Instance.PlayerCollectedPoint(this.gameObject, TimeForDeathBlip);
+            
             Expand = true;
             TriggeredByCar = true;
           

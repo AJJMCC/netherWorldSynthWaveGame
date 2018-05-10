@@ -6,6 +6,7 @@ public class CarScript : MonoBehaviour {
 
     bool TriggeredByCar = false;
     public float TimeTillTriggerPassive;
+    public float TimeTillKillCar;
 
     public float DeathRotSpeed;
     public float DeathRiseSpeed;
@@ -39,15 +40,16 @@ public class CarScript : MonoBehaviour {
         {
             Debug.Log("HitCar");
             AudioManager.Instance.Play("Crash");
-            Invoke("TellControlWeHitACar", TimeTillTriggerPassive);
-            EnviroPusher.Instance.PlayerhitCarWhileDriving(this.gameObject, TimeTillTriggerPassive);
+            //Invoke("TellControlWeHitACar", TimeTillTriggerPassive);
+            ModeSwitchControl.Instance.PlayerHitCar_GodTierResponce(this.gameObject, TimeTillTriggerPassive);
+            EnviroPusher.Instance.PlayerhitCarWhileDriving(this.gameObject, TimeTillKillCar);
             TriggeredByCar = true;
           
         }
     }
 
-    void TellControlWeHitACar()
-    {
-        ModeSwitchControl.Instance.PassiveActivate();
-    }
+    //void TellControlWeHitACar()
+    //{
+    //    ModeSwitchControl.Instance.PassiveActivate();
+    //}
 }

@@ -8,7 +8,7 @@ public class PointSystem : MonoBehaviour {
     public float BasePushSpeed;
     public float KillZPos;
 
-    //lets spawn some cars
+    //lets spawn some points
     public GameObject[] PointSpawnPositions;
     public GameObject[] PointPrefabs;
     public float MaxPointTimer;
@@ -19,6 +19,10 @@ public class PointSystem : MonoBehaviour {
     public List<GameObject> CurrentPoints;
 
     private bool Driving;
+
+
+
+  
 
 	// Use this for initialization
 	void Start () {
@@ -112,7 +116,7 @@ public class PointSystem : MonoBehaviour {
     {
         CurrentPoints.Remove(POintHit);
         Destroy(POintHit, TimeToKill);
-      
+        UIGod.Instance.PointCollected();
       
        
     }
