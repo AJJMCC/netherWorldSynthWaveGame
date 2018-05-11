@@ -46,7 +46,16 @@ public class UIGod : MonoBehaviour {
     public float CurrentScoreStartscale;
     public float CurrentScoreEndscale;
 
- 
+    //fuck with the failk text! visually!
+
+    public RectTransform FailScoreText;
+    public Vector3 FailScoreCruisingPosition;
+    public Vector3 FailScoreDrivingPosition;
+
+    public float FailScoreStartscale;
+    public float FailScoreEndscale;
+
+
 
     // store the points 
 
@@ -98,7 +107,7 @@ public class UIGod : MonoBehaviour {
 
     public void PlayerFailed()
     {
-
+        StartCoroutine(MoveText(FailScoreText, FailScoreDrivingPosition, FailScoreCruisingPosition, FailScoreStartscale, FailScoreEndscale,  0.3f));
     }
 
     public void PointCollected()
@@ -109,6 +118,7 @@ public class UIGod : MonoBehaviour {
 
     void UpdateHighScore()
     {
+        PointsThisRun = TheHighScore;
 
     }
 
@@ -120,6 +130,10 @@ public class UIGod : MonoBehaviour {
         StartCoroutine(MoveText(CruisingTextParent, DrivingPosition, CruisingPosition, Endscale, Startscale, TransitionTime));
         StartCoroutine(MoveText(HighScoreText, HighScoreDrivingPosition, HighScoreCruisingPosition, HighScoreEndscale, HighScoreStartscale, TransitionTime));
         StartCoroutine(MoveText(CurrentScoreText, CurrentScoreDrivingPosition, CurrentScoreCruisingPosition, CurrentScoreEndscale, CurrentScoreStartscale, TransitionTime));
+        if (FailScoreText .localScale.x > 0)
+        {
+            FailScoreText.localScale = new Vector3(0, 0, 0);
+        }
         if (PointsThisRun > TheHighScore)
         {
             UpdateHighScore();
