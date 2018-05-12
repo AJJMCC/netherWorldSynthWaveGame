@@ -118,8 +118,9 @@ public class UIGod : MonoBehaviour {
 
     void UpdateHighScore()
     {
-        PointsThisRun = TheHighScore;
-
+        TheHighScore = PointsThisRun;
+        HighScoreText.Find("HighScore Text").GetComponent<Text>().text = "High Score " + PointsThisRun;
+        Debug.Log("the highscore has been updated to" + TheHighScore);
     }
 
 
@@ -148,7 +149,7 @@ public class UIGod : MonoBehaviour {
         StartCoroutine(MoveText(HighScoreText, HighScoreCruisingPosition, HighScoreDrivingPosition, HighScoreStartscale, HighScoreEndscale, TransitionTime));
         StartCoroutine(MoveText(CurrentScoreText, CurrentScoreCruisingPosition, CurrentScoreDrivingPosition, CurrentScoreStartscale, CurrentScoreEndscale, TransitionTime));
         CurrentScoreText.Find("CScore Text").GetComponent<Text>().text = "Current Score " + PointsThisRun;
-
+        Debug.Log("the highscore is now" + TheHighScore);
 
     }
 

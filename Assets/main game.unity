@@ -1611,8 +1611,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378463926}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -8.360001, z: -7}
+  m_LocalRotation: {x: 0.047765423, y: 0.15327594, z: 0.0074169845, w: -0.98700047}
+  m_LocalPosition: {x: 8.935148, y: -8.429167, z: -41.201794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3503,8 +3503,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 885154968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -8.360001, z: -7}
+  m_LocalRotation: {x: 0.047765423, y: 0.15327594, z: 0.0074169845, w: -0.98700047}
+  m_LocalPosition: {x: 8.935148, y: -8.429167, z: -41.201794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4027,8 +4027,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080768606}
-  m_LocalRotation: {x: -0.044351492, y: 0.9468737, z: 0.14923012, w: 0.28141344}
-  m_LocalPosition: {x: -88.85426, y: -37.24789, z: 57.112755}
+  m_LocalRotation: {x: 0.047765423, y: 0.15327594, z: 0.0074169845, w: -0.98700047}
+  m_LocalPosition: {x: 8.935148, y: -8.429167, z: -41.201794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -4603,8 +4603,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364744302}
-  m_LocalRotation: {x: -0.044351492, y: 0.9468737, z: 0.14923012, w: 0.28141344}
-  m_LocalPosition: {x: -88.85426, y: -37.24789, z: 57.112755}
+  m_LocalRotation: {x: 0.047765423, y: 0.15327594, z: 0.0074169845, w: -0.98700047}
+  m_LocalPosition: {x: 8.935148, y: -8.429167, z: -41.201794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -5173,26 +5173,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0eef68e9754b2a8a28e5afbe009a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useStaticNoise: 0
+  useStaticNoise: 1
   noiseTexture: {fileID: 0}
   staticIntensity: 0.11
-  randomGlitches: 0
-  glitchIntensity: 0.29
+  randomGlitches: 1
+  glitchIntensity: 0.08
   glitchFrequency: 1
   useDisplacementWaves: 1
-  displacementAmplitude: 1.29
-  displacementFrequency: 23.2
-  displacementSpeed: 0.94
+  displacementAmplitude: 2.01
+  displacementFrequency: 32.5
+  displacementSpeed: 2.24
   useChromaticAberration: 1
-  chromaticAberration: 5.2
+  chromaticAberration: 8.5
   useVignette: 1
-  vignette: 0.037
+  vignette: 0.204
   useBottomNoise: 1
-  bottomHeight: 0.144
-  bottomIntensity: 0.38
+  bottomHeight: 0.115
+  bottomIntensity: 1
   useBottomStretch: 1
   useRadialDistortion: 1
-  radialIntensity: 20
+  radialIntensity: 20.87
   radialCurvature: 4
   gammaScale: 0.94
   useScanlines: 1
@@ -6615,7 +6615,7 @@ MonoBehaviour:
   - source: {fileID: 0}
     name: Theme
     clip: {fileID: 8300000, guid: b1e9eacebdfc95d40b33f56ad1bc2a3e, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 1
     doesFade: 1
@@ -6623,7 +6623,7 @@ MonoBehaviour:
   - source: {fileID: 0}
     name: Driving theme
     clip: {fileID: 8300000, guid: 341ab5ec4287e0148ba8533a054ea98f, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 1
     doesFade: 1
