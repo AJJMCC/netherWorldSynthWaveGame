@@ -20,15 +20,16 @@ public class EffectsGod : MonoBehaviour {
     //tint control
     public float Drive_Y;
     public float Passive_Y;
+    public float PointPickup_Y;
     public float _U;
     public float _V;
 
-    //radial Intensity control
-    public float PassiveRadial;
-    public float DriveRadial;
-
     public float TimeForDriveGlitches;
-    //public AnimationCurve ToDriveControl;
+
+
+
+    public AnimationCurve PointPickupAnimCurve;
+    public float TimeForPointPickupGlitches;
 
     // Use this for initialization
     void Start ()
@@ -59,9 +60,28 @@ public class EffectsGod : MonoBehaviour {
         StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
     }
 
-    void PointPickupGlitches()
+    public void PointPickupGlitches()
     {
         EZCameraShake.CameraShaker.Instance.ShakeOnce(5, 5, 0, 0.4f);
+        StartCoroutine(PointPickupEffects(TimeForPointPickupGlitches));
+    }
+
+    IEnumerator PointPickupEffects(float time)
+    {
+        //Debug.Log("car reset");
+        float timer = 0.0f;
+        while (timer <= time)
+        {
+
+            float TintY = (Mathf.Lerp(Drive_Y, PointPickup_Y, PointPickupAnimCurve.Evaluate(timer / time)));
+            Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
+
+
+
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
     }
 
     //reset when passive starts
@@ -94,8 +114,8 @@ public class EffectsGod : MonoBehaviour {
 
             float TintY = (Mathf.Lerp(Passive_Y, Drive_Y, (timer / time)));
             Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
-            float TVSide = (Mathf.Lerp(PassiveRadial, DriveRadial, (timer / time)));
-            Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
+           // float TVSide = (Mathf.Lerp(PassiveRadial, DriveRadial, (timer / time)));
+           // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
 
 
             timer += Time.deltaTime;
@@ -114,8 +134,8 @@ public class EffectsGod : MonoBehaviour {
 
             float TintY = (Mathf.Lerp(Drive_Y,Passive_Y , (timer / time)));
             Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
-            float TVSide = (Mathf.Lerp(DriveRadial, PassiveRadial, (timer / time)));
-            Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
+           // float TVSide = (Mathf.Lerp(DriveRadial, PassiveRadial, (timer / time)));
+           // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
 
             timer += Time.deltaTime;
 
