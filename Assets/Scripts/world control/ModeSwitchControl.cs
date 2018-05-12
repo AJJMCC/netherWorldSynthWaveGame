@@ -48,20 +48,21 @@ public class ModeSwitchControl : MonoBehaviour {
 
     public void PlayerHitCar_GodTierResponce(GameObject CarHit, float TimeWeWait)
     {
-       //Activate GLitches
-
+        //Activate GLitches
+        _UiGod.GetComponent<EffectsGod>().FailGlitches();
        //BringUpFailSign
        _UiGod.GetComponent<UIGod>().PlayerFailed();
        
         //updateScore
        Invoke("PassiveActivate", TimeWeWait);
+       
 
     }
 
 
     public void PassiveActivate()
     {
-        Debug.Log("becomepassive");
+       // Debug.Log("becomepassive");
         timechecker = 0;
         isPassive = true;
         //once we hit passive we run this function
@@ -70,7 +71,7 @@ public class ModeSwitchControl : MonoBehaviour {
         CarGod.GetComponent<CameraController>().DriveCar = false;
 
         _UiGod.GetComponent<UIGod>().UIPassiveResponce();
-
+        _UiGod.GetComponent<EffectsGod>().NaturalPassiveGlitches();
         WorldGod.GetComponent<WorldControl>().WorldPassiveResponce();
 
         //This was me calling the sounds from the audiomanager
@@ -91,8 +92,8 @@ public class ModeSwitchControl : MonoBehaviour {
             CarGod.GetComponent<CameraController>().DriveCar = true;
 
             _UiGod.GetComponent<UIGod>().UIDriveResponce();
-
-            WorldGod.GetComponent<WorldControl>().WorldDriveResponce();
+            _UiGod.GetComponent<EffectsGod>().StartedcDrivingGlitches();
+             WorldGod.GetComponent<WorldControl>().WorldDriveResponce();
 
             //This was me calling the sounds from the audiomanager
             AudioManager.Instance.Stop("Theme");

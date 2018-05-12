@@ -107,7 +107,7 @@ public class UIGod : MonoBehaviour {
 
     public void PlayerFailed()
     {
-        StartCoroutine(MoveText(FailScoreText, FailScoreDrivingPosition, FailScoreCruisingPosition, FailScoreStartscale, FailScoreEndscale,  0.3f));
+        StartCoroutine(MoveText(FailScoreText, FailScoreDrivingPosition, FailScoreCruisingPosition, FailScoreStartscale, FailScoreEndscale,  1.3f));
     }
 
     public void PointCollected()
@@ -120,7 +120,7 @@ public class UIGod : MonoBehaviour {
     {
         TheHighScore = PointsThisRun;
         HighScoreText.Find("HighScore Text").GetComponent<Text>().text = "High Score " + PointsThisRun;
-        Debug.Log("the highscore has been updated to" + TheHighScore);
+       // Debug.Log("the highscore has been updated to" + TheHighScore);
     }
 
 

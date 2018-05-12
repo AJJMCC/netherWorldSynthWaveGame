@@ -396,7 +396,7 @@ public class EnviroPusher : MonoBehaviour {
 
     public void PlayerhitCarWhileDriving(GameObject CarHit,float TimeTOWait)
     {
-        Debug.Log("apparently we hit a car");
+       // Debug.Log("apparently we hit a car");
         CurrentCars.Remove(CarHit);
         Destroy(CarHit, TimeTOWait);
     }

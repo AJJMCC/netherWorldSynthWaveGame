@@ -67,8 +67,8 @@ Material:
     - _BlueOffsetX: 0
     - _BlueOffsetY: 0
     - _BumpScale: 1
-    - _CaDirection: 59
-    - _CaSplitDist: 0.00166
+    - _CaDirection: 0
+    - _CaSplitDist: 0
     - _Cutoff: 0.5
     - _DeltaTime: 0.55847234
     - _DetailNormalMapScale: 1
@@ -81,7 +81,7 @@ Material:
     - _Mode: 0
     - _Multi: 0.001
     - _NoiseSpeed: -4.86
-    - _Noisiness: 0.253
+    - _Noisiness: 0
     - _OcclusionStrength: 1
     - _Offset: 7.6
     - _Parallax: 0.02
@@ -101,8 +101,8 @@ Material:
     - _wIntensity: 0.001
     - _wMulti: 10
     - _wOffset: 10
-    - _wSpeed: 10.62
-    - _wSpread: 79.52
+    - _wSpeed: 6.9
+    - _wSpread: 66.98
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

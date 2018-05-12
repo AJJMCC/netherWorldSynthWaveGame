@@ -70,7 +70,7 @@ public class WorldControl : MonoBehaviour {
         
         OurOwnPassive();
         passive = true;
-        Debug.Log("WorldDecidedToBePassive");
+       // Debug.Log("WorldDecidedToBePassive");
         //turn the cars on
     }
 

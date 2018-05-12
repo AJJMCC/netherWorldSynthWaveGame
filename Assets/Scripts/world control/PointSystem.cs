@@ -92,7 +92,7 @@ public class PointSystem : MonoBehaviour {
             SpawnSingular(PointPrefabs, PointSpawnPositions,CurrentPoints);
 
             RealPointTime = Random.Range(MinPointTimer, MaxPointTimer);
-            Debug.Log("SpawnPoints");
+           // Debug.Log("SpawnPoints");
         }
     }
 
