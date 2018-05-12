@@ -47,7 +47,9 @@ public class OverallCarControl : MonoBehaviour {
 
     //car placement checks
     private bool IsCarRight;
-  
+
+    public float DrivingCooldownTime;
+    float DrivingCooldown;
 
 
     // Use this for initialization
@@ -83,7 +85,7 @@ public class OverallCarControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0 && DrivingCooldown <= 0)
         {
             Turnoff();
             World.GetComponent<ModeSwitchControl>().PlayerDriving();
@@ -94,10 +96,10 @@ public class OverallCarControl : MonoBehaviour {
         }
         else if (IsCarPassive)
         {
-          
+            DrivingCooldown -= Time.deltaTime;
             if (Physics.Raycast(car.transform.localPosition, car.transform.forward, 20))
             {
-
+               
                
                 if (!IsCarRight && Movecunt)
                 {

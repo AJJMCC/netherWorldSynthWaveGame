@@ -12,6 +12,7 @@ public class ModeSwitchControl : MonoBehaviour {
     public GameObject CarGod;
     public GameObject WorldGod;
     public GameObject _UiGod;
+    public float DrivingCooldown;
     
 
 	// Use this for initialization
@@ -40,6 +41,7 @@ public class ModeSwitchControl : MonoBehaviour {
         if (Input.anyKey)
         { timechecker = 0; }
 		
+        
 
 	}
 
