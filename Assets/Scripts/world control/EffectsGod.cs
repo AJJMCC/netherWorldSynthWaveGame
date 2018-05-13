@@ -3,144 +3,173 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EffectsGod : MonoBehaviour {
-    public static EffectsGod Instance;
-
-    public GameObject Camera1;
-
-    //colour bleed control
-    public float MinBleed;
-    public float MaxBleed;
-    public AnimationCurve ColourBleedControl1;
-    public float TimeForFailGlitches;
-    //VRAM control
-    public float MinVRAM;
-    public float MaxVRAM;
-
-    //tint control
-    public float Drive_Y;
-    public float Passive_Y;
-    public float PointPickup_Y;
-    public float _U;
-    public float _V;
-
-    public float TimeForDriveGlitches;
-
-
-
-    public AnimationCurve PointPickupAnimCurve;
-    public float TimeForPointPickupGlitches;
-
-    // Use this for initialization
-    void Start ()
+namespace Reaktion
+{
+    public class EffectsGod : MonoBehaviour
     {
-        Instance = this;
+        public static EffectsGod Instance;
 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        public GameObject Camera1;
 
-    public void FailGlitches()
-    {
-        EZCameraShake.CameraShaker.Instance.ShakeOnce(35, 35, 0, 1);
-        StartCoroutine(FailEffects( TimeForFailGlitches));
-        Debug.Log("should have started fail glitches");
-    }
+        //glitches that happen when you fail
+        public float TimeForFailGlitches;
+        //colour bleed
+        public float MinBleed;
+        public float MaxBleed;
+        public AnimationCurve ColourBleedControl1;
+        //VRAM control
+        public float MinVRAM;
+        public float MaxVRAM;
 
-    public void StartedcDrivingGlitches()
-    {
-        StartCoroutine(StartDrivingEffects(TimeForDriveGlitches));
-    }
+        //glitches that happen when you start driving
 
-    public void NaturalPassiveGlitches()
-    {
-        StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
-    }
+        //glitches that happen in relation to outside sounds. 
+        public ReaktorLink reaktor;
+        public Modifier intensity;
+        public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
+        //tint control
+        public float MinTintCol;
+        public float MaxTintCol;
+        public float BaseTintColour;
+        public float TintAudioMultiplier;
 
-    public void PointPickupGlitches()
-    {
-        EZCameraShake.CameraShaker.Instance.ShakeOnce(5, 5, 0, 0.4f);
-        StartCoroutine(PointPickupEffects(TimeForPointPickupGlitches));
-    }
+        public float TimeForDriveGlitches;
 
-    IEnumerator PointPickupEffects(float time)
-    {
-        //Debug.Log("car reset");
-        float timer = 0.0f;
-        while (timer <= time)
+
+
+        public AnimationCurve PointPickupAnimCurve;
+        public float TimeForPointPickupGlitches;
+
+        // Use this for initialization
+        void Start()
         {
+            reaktor.Initialize(this);
+            Instance = this;
 
-            float TintY = (Mathf.Lerp(Drive_Y, PointPickup_Y, PointPickupAnimCurve.Evaluate(timer / time)));
-            Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
-
-
-
-            timer += Time.deltaTime;
-
-            yield return null;
         }
-    }
 
-    //reset when passive starts
-    IEnumerator FailEffects( float time)
-    {
-        //Debug.Log("car reset");
-        float timer = 0.0f;
-        while (timer <= time)
+        // Update is called once per frame
+        void Update()
         {
-
-            float BleedEffect = (Mathf.Lerp(MinBleed, MaxBleed, ColourBleedControl1.Evaluate(timer / time)));
-            Camera1.GetComponent<ShaderEffect_BleedingColors>().intensity = BleedEffect;
-
-            float VRAMEffect = (Mathf.Lerp(MinVRAM, MaxVRAM, ColourBleedControl1.Evaluate(timer / time)));
-            Camera1.GetComponent<ShaderEffect_CorruptedVram>().shift = VRAMEffect;
-            
-            timer += Time.deltaTime;
-
-            yield return null;
+            UpdateTintOnReactor(reaktor.Output, TintAudioMultiplier, BaseTintColour);
         }
-    }
 
-    //reset when passive starts
-    IEnumerator StartDrivingEffects(float time)
-    {
-        //Debug.Log("car reset");
-        float timer = 0.0f;
-        while (timer <= time)
+
+        void UpdateTintOnReactor(float Param1, float audiomultiplier,float adder)
         {
+            float TinTColour = ((Param1 * audiomultiplier) + adder);
+           // float TinTColour = Mathf.Clamp(((Param1 * audiomultiplier) + adder),MinTintCol, MaxTintCol);
+            Camera1.GetComponent<ShaderEffect_Tint>().y = TinTColour;
 
-            float TintY = (Mathf.Lerp(Passive_Y, Drive_Y, (timer / time)));
-            Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
-           // float TVSide = (Mathf.Lerp(PassiveRadial, DriveRadial, (timer / time)));
-           // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
+            Camera1.GetComponent<ShaderEffect_Tint>().u = TinTColour;
 
+            Camera1.GetComponent<ShaderEffect_Tint>().v = TinTColour;
 
-            timer += Time.deltaTime;
-
-            yield return null;
         }
-    }
 
-    //reset when passive starts
-    IEnumerator StartPassiveEffects(float time)
-    {
-        //Debug.Log("car reset");
-        float timer = 0.0f;
-        while (timer <= time)
+
+
+        public void FailGlitches()
         {
-
-            float TintY = (Mathf.Lerp(Drive_Y,Passive_Y , (timer / time)));
-            Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
-           // float TVSide = (Mathf.Lerp(DriveRadial, PassiveRadial, (timer / time)));
-           // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
-
-            timer += Time.deltaTime;
-
-            yield return null;
+            EZCameraShake.CameraShaker.Instance.ShakeOnce(35, 35, 0, 1);
+            StartCoroutine(FailEffects(TimeForFailGlitches));
+            Debug.Log("should have started fail glitches");
         }
-    }
 
+        public void StartedcDrivingGlitches()
+        {
+            StartCoroutine(StartDrivingEffects(TimeForDriveGlitches));
+        }
+
+        public void NaturalPassiveGlitches()
+        {
+            StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
+        }
+
+        public void PointPickupGlitches()
+        {
+            EZCameraShake.CameraShaker.Instance.ShakeOnce(5, 5, 0, 0.4f);
+            //StartCoroutine(PointPickupEffects(TimeForPointPickupGlitches));
+        }
+
+        //IEnumerator PointPickupEffects(float time)
+        //{
+        //    //Debug.Log("car reset");
+        //    float timer = 0.0f;
+        //    while (timer <= time)
+        //    {
+
+        //        float TintY = (Mathf.Lerp(Drive_Y, PointPickup_Y, PointPickupAnimCurve.Evaluate(timer / time)));
+        //        Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
+
+
+
+        //        timer += Time.deltaTime;
+
+        //        yield return null;
+        //    }
+        //}
+
+        //reset when passive starts
+
+
+        IEnumerator FailEffects(float time)
+        {
+            //Debug.Log("car reset");
+            float timer = 0.0f;
+            while (timer <= time)
+            {
+
+                float BleedEffect = (Mathf.Lerp(MinBleed, MaxBleed, ColourBleedControl1.Evaluate(timer / time)));
+                Camera1.GetComponent<ShaderEffect_BleedingColors>().intensity = BleedEffect;
+
+                float VRAMEffect = (Mathf.Lerp(MinVRAM, MaxVRAM, ColourBleedControl1.Evaluate(timer / time)));
+                Camera1.GetComponent<ShaderEffect_CorruptedVram>().shift = VRAMEffect;
+
+                timer += Time.deltaTime;
+
+                yield return null;
+            }
+        }
+
+       
+        IEnumerator StartDrivingEffects(float time)
+        {
+            //Debug.Log("car reset");
+            float timer = 0.0f;
+            while (timer <= time)
+            {
+
+                //float TintY = (Mathf.Lerp(Passive_Y, Drive_Y, (timer / time)));
+                //Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
+                // float TVSide = (Mathf.Lerp(PassiveRadial, DriveRadial, (timer / time)));
+                // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
+
+
+                timer += Time.deltaTime;
+
+                yield return null;
+            }
+        }
+
+        //reset when passive starts
+        IEnumerator StartPassiveEffects(float time)
+        {
+            //Debug.Log("car reset");
+            float timer = 0.0f;
+            while (timer <= time)
+            {
+
+                //float TintY = (Mathf.Lerp(Drive_Y, Passive_Y, (timer / time)));
+                //Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
+                // float TVSide = (Mathf.Lerp(DriveRadial, PassiveRadial, (timer / time)));
+                // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
+
+                timer += Time.deltaTime;
+
+                yield return null;
+            }
+        }
+
+    }
 }

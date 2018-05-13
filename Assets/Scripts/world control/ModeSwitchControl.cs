@@ -49,7 +49,7 @@ public class ModeSwitchControl : MonoBehaviour {
     public void PlayerHitCar_GodTierResponce(GameObject CarHit, float TimeWeWait)
     {
         //Activate GLitches
-        _UiGod.GetComponent<EffectsGod>().FailGlitches();
+        _UiGod.GetComponent<Reaktion.EffectsGod>().FailGlitches();
        //BringUpFailSign
        _UiGod.GetComponent<UIGod>().PlayerFailed();
        
@@ -71,13 +71,17 @@ public class ModeSwitchControl : MonoBehaviour {
         CarGod.GetComponent<CameraController>().DriveCar = false;
 
         _UiGod.GetComponent<UIGod>().UIPassiveResponce();
-        _UiGod.GetComponent<EffectsGod>().NaturalPassiveGlitches();
+        _UiGod.GetComponent<Reaktion.EffectsGod>().NaturalPassiveGlitches();
         WorldGod.GetComponent<WorldControl>().WorldPassiveResponce();
 
         //This was me calling the sounds from the audiomanager
-        AudioManager.Instance.Play("Theme");
-        AudioManager.Instance.Stop("Driving theme");
-        AudioManager.Instance.Play("PassSwitch");
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.Play("Theme");
+            AudioManager.Instance.Stop("Driving theme");
+            AudioManager.Instance.Play("PassSwitch");
+        }
+      
        
         isPassive = true;
 
@@ -92,7 +96,7 @@ public class ModeSwitchControl : MonoBehaviour {
             CarGod.GetComponent<CameraController>().DriveCar = true;
 
             _UiGod.GetComponent<UIGod>().UIDriveResponce();
-            _UiGod.GetComponent<EffectsGod>().StartedcDrivingGlitches();
+            _UiGod.GetComponent<Reaktion.EffectsGod>().StartedcDrivingGlitches();
              WorldGod.GetComponent<WorldControl>().WorldDriveResponce();
 
             //This was me calling the sounds from the audiomanager

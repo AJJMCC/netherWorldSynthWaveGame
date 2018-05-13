@@ -117,7 +117,7 @@ public class PointSystem : MonoBehaviour {
         CurrentPoints.Remove(POintHit);
         Destroy(POintHit, TimeToKill);
         UIGod.Instance.PointCollected();
-        EffectsGod.Instance.PointPickupGlitches();
+        Reaktion.EffectsGod.Instance.PointPickupGlitches();
       
        
     }
