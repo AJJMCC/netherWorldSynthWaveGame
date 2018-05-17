@@ -10,7 +10,13 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     //how long it takes to fade out the previous sound
 
+    public AudioSource sfxSource;
+
+    public AudioSource passiveScore;
+
+    public AudioSource drivingScore;
     // Use this for initialization
+    public float fadeTime;
     void Awake()
     {
         if (Instance == null)
@@ -22,18 +28,9 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(this);
-        
-        //sets all sound class vars to their respective source equal
-        foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-            //s.source.spatialBlend = s.spatialBlend;
-        }
+        passiveScore.volume = 0;
+        drivingScore.volume = 0;
     }
 
     //Plays the sound... wild
@@ -46,23 +43,36 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("Sound: " + name + " not found!");
             return;
         }
-        s.source.Play();
-    }
+        if (s.sfx){
+            sfxSource.clip = s.clip;
+            sfxSource.volume = s.volume;
+            sfxSource.pitch = s.pitch;
+            sfxSource.loop = s.loop;
 
-    //Stops the sound from playing, used mainly for looping sounds
-    public void Stop (string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+            sfxSource.Play();
+        } else
         {
-            Debug.LogError("Can't stop " + name + " because it doesn't exist");
-            return;
+            /* scoreSource.clip = s.clip;
+            scoreSource.volume = s.volume;
+            scoreSource.pitch = s.pitch;
+            scoreSource.loop = s.loop; */
+
+            if (s.clip == passiveScore.clip){
+                //passiveScore.volume = s.volume;
+                passiveScore.pitch = s.pitch;
+                passiveScore.loop = s.loop;
+                StartCoroutine(FadeIn(passiveScore, fadeTime));
+                StartCoroutine(FadeOut(drivingScore, fadeTime));
+            } else
+            {
+                //drivingScore.volume = s.volume;
+                drivingScore.pitch = s.pitch;
+                drivingScore.loop = s.loop;
+                StartCoroutine(FadeIn(drivingScore, fadeTime));
+                StartCoroutine(FadeOut(passiveScore, fadeTime));
+            }
         }
-        //checks to see if fade is enabled, if it is fade it out vice versa...
-        if (s.doesFade)
-            StartCoroutine(FadeOut (s.source, s.fadeTime));
-        else
-            s.source.Stop();
+        
     }
 
     //thing to fade the sound out
@@ -78,9 +88,22 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        //Stops the sound and resets vol for nextime
-        audioSource.Stop ();
-        audioSource.volume = startVolume;
+        audioSource.volume = 0;
+        audioSource.Stop();
+    }
+
+    public static IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
+    {          
+        //audioSource.volume = 0;
+        audioSource.Play();
+        while (audioSource.volume < 0.5f) 
+        {
+            audioSource.volume += 0.5f * Time.deltaTime / fadeTime;
+ 
+            yield return null;
+        }
+
+        audioSource.volume = 0.5f;
     }
 
     public void Start()
@@ -88,16 +111,5 @@ public class AudioManager : MonoBehaviour
         //This is just chucked here for now
         Play("Theme");
     }
-
-    /* public void PlayAtPoint (string name, Vector3 pos)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
-        }
-        s.source.PlayClipAtPoint(s.clip, pos);
-    } */
 
 }

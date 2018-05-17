@@ -19,7 +19,7 @@ public class ModeSwitchControl : MonoBehaviour {
 	void Start () {
         Instance = this;
         PassiveActivate();
-
+        //AudioManager.Instance.Play("Theme");
     }
 	
 	// Update is called once per frame
@@ -78,7 +78,6 @@ public class ModeSwitchControl : MonoBehaviour {
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.Play("Theme");
-            AudioManager.Instance.Stop("Driving theme");
             AudioManager.Instance.Play("PassSwitch");
         }
       
@@ -102,8 +101,8 @@ public class ModeSwitchControl : MonoBehaviour {
             //This was me calling the sounds from the audiomanager
             if (AudioManager.Instance != null)
             {
-                AudioManager.Instance.Stop("Theme");
                 AudioManager.Instance.Play("Driving theme");
+                Debug.Log("switching themes");
                 AudioManager.Instance.Play("DriveSwitch");
             }
                 isPassive = false;

@@ -4,8 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class Sound {
 
-    [HideInInspector]
-    public AudioSource source;
+    public bool sfx;
 
     public string name;
 
@@ -18,9 +17,9 @@ public class Sound {
 
     public bool loop;
 
-    public bool doesFade;
+    //public bool doesFade;
 
-    public float fadeTime;
+    //public float fadeTime;
 
     /* [Range(0f, 1f)]
     public float spatialBlend; */
