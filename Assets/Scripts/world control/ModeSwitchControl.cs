@@ -100,10 +100,13 @@ public class ModeSwitchControl : MonoBehaviour {
              WorldGod.GetComponent<WorldControl>().WorldDriveResponce();
 
             //This was me calling the sounds from the audiomanager
-            AudioManager.Instance.Stop("Theme");
-            AudioManager.Instance.Play("Driving theme");
-            AudioManager.Instance.Play("DriveSwitch");
-            isPassive = false;
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.Stop("Theme");
+                AudioManager.Instance.Play("Driving theme");
+                AudioManager.Instance.Play("DriveSwitch");
+            }
+                isPassive = false;
         }
       
        

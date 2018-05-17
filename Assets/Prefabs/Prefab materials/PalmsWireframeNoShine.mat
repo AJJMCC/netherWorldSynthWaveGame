@@ -11,6 +11,7 @@ Material:
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -37,7 +38,7 @@ Material:
     - _Specular: 1
     - _UseSpecular: 0
     m_Colors:
-    - _EmissionColor: {r: 0.23599698, g: 0.71323526, b: 0.63410765, a: 1}
-    - _LineColor: {r: 0.17030708, g: 0.9264706, b: 0.8013124, a: 1}
+    - _EmissionColor: {r: 0.17030708, g: 0.9264706, b: 0.8013124, a: 1}
+    - _LineColor: {r: 0.841, g: 0.39099997, b: 0.659, a: 1}
     - _MainColor: {r: 0.11764705, g: 0.11764705, b: 0.11764705, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}

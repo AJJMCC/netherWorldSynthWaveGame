@@ -23,27 +23,15 @@ namespace Reaktion
 
         //glitches that happen when you start driving
 
-        //glitches that happen in relation to outside sounds. 
-        public ReaktorLink reaktor;
-        public Modifier intensity;
-        public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
-        //tint control
-        public float MinTintCol;
-        public float MaxTintCol;
-        public float BaseTintColour;
-        public float TintAudioMultiplier;
-
-        public float TimeForDriveGlitches;
-
-
-
         public AnimationCurve PointPickupAnimCurve;
         public float TimeForPointPickupGlitches;
 
+
+        public float TimeForDriveGlitches;
         // Use this for initialization
         void Start()
         {
-            reaktor.Initialize(this);
+           
             Instance = this;
 
         }
@@ -51,21 +39,11 @@ namespace Reaktion
         // Update is called once per frame
         void Update()
         {
-            UpdateTintOnReactor(reaktor.Output, TintAudioMultiplier, BaseTintColour);
+            
         }
 
 
-        void UpdateTintOnReactor(float Param1, float audiomultiplier,float adder)
-        {
-            float TinTColour = ((Param1 * audiomultiplier) + adder);
-           // float TinTColour = Mathf.Clamp(((Param1 * audiomultiplier) + adder),MinTintCol, MaxTintCol);
-            Camera1.GetComponent<ShaderEffect_Tint>().y = TinTColour;
-
-            Camera1.GetComponent<ShaderEffect_Tint>().u = TinTColour;
-
-            Camera1.GetComponent<ShaderEffect_Tint>().v = TinTColour;
-
-        }
+      
 
 
 
@@ -78,12 +56,12 @@ namespace Reaktion
 
         public void StartedcDrivingGlitches()
         {
-            StartCoroutine(StartDrivingEffects(TimeForDriveGlitches));
+           // StartCoroutine(StartDrivingEffects(TimeForDriveGlitches));
         }
 
         public void NaturalPassiveGlitches()
         {
-            StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
+           // StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
         }
 
         public void PointPickupGlitches()

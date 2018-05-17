@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    //can get this publicly but can only set privately, right now the script is on worldgod
+    //can get this publicly but can only set privately, right now the script is on soundgod
     public static AudioManager Instance { get; private set; }
 
     public Sound[] sounds;
