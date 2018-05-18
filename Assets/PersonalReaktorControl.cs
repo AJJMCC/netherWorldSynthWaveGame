@@ -52,7 +52,7 @@ namespace Reaktion
         {
             UpdateTintOnReactor(reaktor.Output, TintAudioMultiplier, BaseTintColour);
             //Debug.Log(reaktor.Output);
-            UpdateMaterialEmissions(reaktor.Output, SolidPalmAudioMultiplier);
+            //UpdateMaterialEmissions(reaktor.Output, SolidPalmAudioMultiplier);
            
         }
 

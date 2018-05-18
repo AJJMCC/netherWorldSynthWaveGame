@@ -73,12 +73,14 @@ public class ModeSwitchControl : MonoBehaviour {
         _UiGod.GetComponent<UIGod>().UIPassiveResponce();
         _UiGod.GetComponent<Reaktion.EffectsGod>().NaturalPassiveGlitches();
         WorldGod.GetComponent<WorldControl>().WorldPassiveResponce();
+      
 
         //This was me calling the sounds from the audiomanager
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.Play("Theme");
             AudioManager.Instance.Play("PassSwitch");
+            MusicEffectsControl.instance.StartPassive();
         }
       
        
@@ -104,6 +106,7 @@ public class ModeSwitchControl : MonoBehaviour {
                 AudioManager.Instance.Play("Driving theme");
                 Debug.Log("switching themes");
                 AudioManager.Instance.Play("DriveSwitch");
+                MusicEffectsControl.instance.StartDriving();
             }
                 isPassive = false;
         }

@@ -67,7 +67,7 @@ Material:
     - _Cutoff: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionGain: 0.375
+    - _EmissionGain: 0.39273822
     - _GlossMapScale: 1
     - _Glossiness: 0.463
     - _GlossyReflections: 1
@@ -93,7 +93,7 @@ Material:
     - _wSpread: 100
     m_Colors:
     - _Color: {r: 1, g: 0.403, b: 0, a: 1}
-    - _EmissionColor: {r: 0.9485294, g: 0.172, b: 0, a: 1}
-    - _LineColor: {r: 1, g: 0.191, b: 0, a: 1}
+    - _EmissionColor: {r: 1, g: 0.18133333, b: 0, a: 1}
+    - _LineColor: {r: 1, g: 0.19099997, b: 0, a: 1}
     - _MainColor: {r: 0.29411763, g: 0.08434255, b: 0.21823527, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}

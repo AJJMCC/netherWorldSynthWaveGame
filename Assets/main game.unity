@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.118253626, g: 0.04063739, b: 0.0842463, a: 1}
+  m_IndirectSpecularColor: {r: 0.10143059, g: 0.036571328, b: 0.0843372, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1064,12 +1064,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf5eca25a66ee540aeb03e8570b9374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audio: {fileID: 0}
-  minVolume: 0.005
-  color: {r: 1, g: 1, b: 1, a: 1}
-  Song: {fileID: 0}
-  SideWalksDriven: {fileID: 0}
-  RetroSkyBox: {fileID: 0}
+  DriveAudio: {fileID: 2055716224}
+  PassiveAudio: {fileID: 2055716222}
+  SideWalksDriven: {fileID: 2100000, guid: 94a5367b206b9b54b9896c1ca700b535, type: 2}
+  SideWalkMultiplier: 4.5
+  SideWalksMinEmission: 0.256
+  SideWalksMaxEmission: 0.6
+  CarMat: {fileID: 2100000, guid: 9c5d686dc1065fa4fb07bb91a28baa25, type: 2}
+  CarMultiplier: 9
+  CarcolorGradient:
+    serializedVersion: 2
+    key0: {r: 0.051470578, g: 0.051470578, b: 0.051470578, a: 1}
+    key1: {r: 0, g: 0.391, b: 0.784, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 27178
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  PointMat: {fileID: 2100000, guid: f63c79d88b62c8c468b069c1a69b4ed3, type: 2}
+  PointMultiplier: 0
+  PointMinEmission: 0
+  PointMaxEmission: 0
+  SolidPalm: {fileID: 2100000, guid: 49604365e6d37f7438286d9d821f9541, type: 2}
+  MinSolidPalm: 0
+  MaxSolidPalm: 24
+  SolidPalmAudioMultiplier: 0.008
 --- !u!1 &167962466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1722,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -3764,7 +3802,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -4580,8 +4617,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080768606}
-  m_LocalRotation: {x: -0.04897752, y: 0.29686117, z: 0.01524723, w: 0.95354193}
-  m_LocalPosition: {x: -0.19230233, y: -8.133375, z: -5.183716}
+  m_LocalRotation: {x: -0.0056378883, y: -0.037332777, z: 0.0002105854, w: -0.99928695}
+  m_LocalPosition: {x: 2.3229055, y: -5.0843353, z: 9.659027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -4618,7 +4655,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5159,8 +5195,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364744302}
-  m_LocalRotation: {x: -0.04897752, y: 0.29686117, z: 0.01524723, w: 0.95354193}
-  m_LocalPosition: {x: -0.19230233, y: -8.133375, z: -5.183716}
+  m_LocalRotation: {x: -0.0056378883, y: -0.037332777, z: 0.0002105854, w: -0.99928695}
+  m_LocalPosition: {x: 2.3229055, y: -5.0843353, z: 9.659027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -5197,7 +5233,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5791,7 +5826,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -7420,7 +7454,7 @@ MonoBehaviour:
     loop: 1
   - sfx: 0
     name: Driving theme
-    clip: {fileID: 8300000, guid: 341ab5ec4287e0148ba8533a054ea98f, type: 3}
+    clip: {fileID: 8300000, guid: d0320b85f2ae83d4191526c821daf809, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
@@ -7621,9 +7655,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 341ab5ec4287e0148ba8533a054ea98f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d0320b85f2ae83d4191526c821daf809, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
