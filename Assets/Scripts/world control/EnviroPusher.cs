@@ -22,12 +22,19 @@ public class EnviroPusher : MonoBehaviour {
     public GameObject[] CarPrefabs;
     [Tooltip("the maximum time between spawns")]
     public float MaxCarTimer;
+    public float DriveMaxCarTimer;
+    public float PassiveMaxCarTimer;
     [Tooltip("this minimin time between spawns")]
     public float MinCarTimer;
+    public float DriveMinCarTimer;
+    public float PassiveMinCarTimer;
     private float RealCarTime;
     private List<GameObject> CurrentCars;
     [Tooltip("How fast the cars move in relation to the base scroll speed")]
     public float CarMoveSpeedExponent;
+    [Tooltip("How much car speed changes between passive and driving")]
+    public float CarSpeedDriveDifference;
+    public float CarSpeedPassiveDifference;
 
     //lets spawn some trees
     public GameObject[] TreeSpawnPositions;
@@ -116,12 +123,18 @@ public class EnviroPusher : MonoBehaviour {
     public void PassiveActivate()
     {
         BasePushSpeed = GetComponent<WorldControl>().RealSpeed;
+        CarMoveSpeedExponent = CarSpeedPassiveDifference;
+        MaxCarTimer = PassiveMaxCarTimer;
+        MinCarTimer = PassiveMinCarTimer;
         Driving = false;
     }
 
     public void DrivingResponce()
     {
         BasePushSpeed = GetComponent<WorldControl>().RealSpeed;
+        CarMoveSpeedExponent = CarSpeedDriveDifference;
+        MaxCarTimer = DriveMaxCarTimer;
+        MinCarTimer = DriveMinCarTimer;
         Driving = true;
     }
 

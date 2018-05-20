@@ -21,13 +21,16 @@ namespace Reaktion
         public float MinVRAM;
         public float MaxVRAM;
 
-        //glitches that happen when you start driving
-
+     
         public AnimationCurve PointPickupAnimCurve;
         public float TimeForPointPickupGlitches;
 
+        //glitches that happen when you start driving
 
         public float TimeForDriveGlitches;
+        public float PassiveColBleed;
+        public float DrivingColBleed;
+
         // Use this for initialization
         void Start()
         {
@@ -56,12 +59,12 @@ namespace Reaktion
 
         public void StartedcDrivingGlitches()
         {
-           // StartCoroutine(StartDrivingEffects(TimeForDriveGlitches));
+            StartCoroutine(StartDrivingEffects(TimeForDriveGlitches));
         }
 
         public void NaturalPassiveGlitches()
         {
-           // StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
+            StartCoroutine(StartPassiveEffects(TimeForDriveGlitches));
         }
 
         public void PointPickupGlitches()
@@ -118,8 +121,8 @@ namespace Reaktion
             while (timer <= time)
             {
 
-                //float TintY = (Mathf.Lerp(Passive_Y, Drive_Y, (timer / time)));
-                //Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
+               float ColB = (Mathf.Lerp(PassiveColBleed, DrivingColBleed, (timer / time)));
+                Camera1.GetComponent<ShaderEffect_BleedingColors>().intensity = ColB;
                 // float TVSide = (Mathf.Lerp(PassiveRadial, DriveRadial, (timer / time)));
                 // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
 
@@ -138,8 +141,8 @@ namespace Reaktion
             while (timer <= time)
             {
 
-                //float TintY = (Mathf.Lerp(Drive_Y, Passive_Y, (timer / time)));
-                //Camera1.GetComponent<ShaderEffect_Tint>().y = TintY;
+                float ColB = (Mathf.Lerp(DrivingColBleed,PassiveColBleed , (timer / time)));
+                Camera1.GetComponent<ShaderEffect_BleedingColors>().intensity = ColB;
                 // float TVSide = (Mathf.Lerp(DriveRadial, PassiveRadial, (timer / time)));
                 // Camera1.GetComponent<RetroAesthetics.RetroCameraEffect>().radialIntensity = TVSide;
 

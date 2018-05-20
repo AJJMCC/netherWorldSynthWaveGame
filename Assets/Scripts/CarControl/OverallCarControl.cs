@@ -11,6 +11,7 @@ public class OverallCarControl : MonoBehaviour {
 
     // BIGCONTROL
     private bool IsCarPassive = true;
+    
 
     // ACTIVE CONTROL
     [Tooltip("The max side to side the car can go when driving")]
@@ -74,6 +75,7 @@ public class OverallCarControl : MonoBehaviour {
     //its passive time
     public void Turnon()
     {
+        DrivingCooldown = DrivingCooldownTime;
         IsCarPassive = true;
         StopAllCoroutines();
         StartCoroutine(Reset(RightX, ResetTime));
@@ -85,6 +87,7 @@ public class OverallCarControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        DrivingCooldown -= Time.deltaTime;
         if (Input.GetAxis("Horizontal") != 0 && DrivingCooldown <= 0)
         {
             Turnoff();
@@ -96,7 +99,7 @@ public class OverallCarControl : MonoBehaviour {
         }
         else if (IsCarPassive)
         {
-            DrivingCooldown -= Time.deltaTime;
+           
             if (Physics.Raycast(car.transform.localPosition, car.transform.forward, 20))
             {
                

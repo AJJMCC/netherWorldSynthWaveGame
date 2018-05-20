@@ -12,7 +12,7 @@ public class ModeSwitchControl : MonoBehaviour {
     public GameObject CarGod;
     public GameObject WorldGod;
     public GameObject _UiGod;
-    public float DrivingCooldown;
+   
     
 
 	// Use this for initialization
@@ -40,10 +40,11 @@ public class ModeSwitchControl : MonoBehaviour {
         }
         if (Input.anyKey)
         { timechecker = 0; }
-		
-        
 
-	}
+       
+
+
+    }
 
 
     public void PlayerHitCar_GodTierResponce(GameObject CarHit, float TimeWeWait)
@@ -62,8 +63,10 @@ public class ModeSwitchControl : MonoBehaviour {
 
     public void PassiveActivate()
     {
-       // Debug.Log("becomepassive");
+        // Debug.Log("becomepassive");
+
         timechecker = 0;
+
         isPassive = true;
         //once we hit passive we run this function
         CarGod.GetComponent<OverallCarControl>().Turnon();
@@ -90,7 +93,7 @@ public class ModeSwitchControl : MonoBehaviour {
 
     public void PlayerDriving()
     {
-        if (isPassive)
+        if (isPassive )
         {
             //when the player starts driving this function activates (controlled by the car)
             
