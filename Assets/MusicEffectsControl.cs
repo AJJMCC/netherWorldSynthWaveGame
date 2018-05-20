@@ -29,6 +29,9 @@ public class MusicEffectsControl : MonoBehaviour {
     public float CarMultiplier;
     public Gradient CarcolorGradient;
 
+    public Material EnCarMat;
+    public float EnCarMultiplier;
+    public Gradient EnCarcolorGradient;
 
     public Material PointMat;
     public float PointMultiplier;
@@ -89,7 +92,7 @@ public class MusicEffectsControl : MonoBehaviour {
     private void UpdateColor()
     {
         CarControl();
-
+        EnCarControl();
         UpdateSideWalkEmission();
 
         PointMatColour();
@@ -115,6 +118,15 @@ public class MusicEffectsControl : MonoBehaviour {
 
         //float ClampedValue1 = Mathf.Clamp(ChangeValue1, CarMinEmission, CarMaxEmission);
         CarMat.SetColor("_EmissionColor", CarcolorGradient.Evaluate((ChangeValue1)));
+
+    }
+
+    void EnCarControl()
+    {
+        float ChangeValue1 = rmsValue * EnCarMultiplier;
+
+        //float ClampedValue1 = Mathf.Clamp(ChangeValue1, CarMinEmission, CarMaxEmission);
+        EnCarMat.SetColor("_Color", EnCarcolorGradient.Evaluate((ChangeValue1)));
 
     }
 

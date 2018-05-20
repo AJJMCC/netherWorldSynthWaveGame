@@ -1101,6 +1101,37 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  EnCarMat: {fileID: 2100000, guid: 50d40a7fae00b4730ad28bbc03da99de, type: 2}
+  EnCarMultiplier: 9
+  EnCarcolorGradient:
+    serializedVersion: 2
+    key0: {r: 0.459, g: 0.297, b: 0.483, a: 1}
+    key1: {r: 1, g: 0.241, b: 0.346, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 13685
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   PointMat: {fileID: 2100000, guid: f63c79d88b62c8c468b069c1a69b4ed3, type: 2}
   PointMultiplier: 0
   PointMinEmission: 0
@@ -4617,8 +4648,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080768606}
-  m_LocalRotation: {x: -0.0056378883, y: -0.037332777, z: 0.0002105854, w: -0.99928695}
-  m_LocalPosition: {x: 2.3229055, y: -5.0843353, z: 9.659027}
+  m_LocalRotation: {x: 0.29036015, y: 0.5612325, z: 0.2192055, w: -0.74340975}
+  m_LocalPosition: {x: 1.9580812, y: -6.544386, z: 20.956024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -5195,8 +5226,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364744302}
-  m_LocalRotation: {x: -0.0056378883, y: -0.037332777, z: 0.0002105854, w: -0.99928695}
-  m_LocalPosition: {x: 2.3229055, y: -5.0843353, z: 9.659027}
+  m_LocalRotation: {x: 0.29036015, y: 0.5612325, z: 0.2192055, w: -0.74340975}
+  m_LocalPosition: {x: 1.9580812, y: -6.544386, z: 20.956024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
