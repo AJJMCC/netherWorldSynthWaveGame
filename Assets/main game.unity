@@ -1754,6 +1754,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -3853,6 +3854,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -4714,6 +4716,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5338,8 +5341,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364744302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -8.360001, z: -7}
+  m_LocalRotation: {x: -0.082280524, y: 0.91499555, z: 0.31373468, w: 0.23996595}
+  m_LocalPosition: {x: -3.805069, y: -11.565052, z: 237.60272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -5376,6 +5379,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5971,6 +5975,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -7677,43 +7682,53 @@ MonoBehaviour:
   sounds:
   - sfx: 0
     name: Theme
-    clip: {fileID: 8300000, guid: b1e9eacebdfc95d40b33f56ad1bc2a3e, type: 3}
+    clip: {fileID: 8300000, guid: d4a590610453bc440a8a9af6ac52f122, type: 3}
+    passiveTheme: 1
     volume: 0.5
     pitch: 1
     loop: 1
   - sfx: 0
     name: Driving theme
-    clip: {fileID: 8300000, guid: d0320b85f2ae83d4191526c821daf809, type: 3}
+    clip: {fileID: 8300000, guid: cca3ff8bc41038541a2581361abd1867, type: 3}
+    passiveTheme: 0
     volume: 0.5
     pitch: 1
     loop: 1
   - sfx: 1
     name: DriveSwitch
     clip: {fileID: 8300000, guid: e0d3f889d94f56141bdc70ef506fb3c7, type: 3}
+    passiveTheme: 0
     volume: 0.1
     pitch: 1
     loop: 0
   - sfx: 1
     name: PassSwitch
     clip: {fileID: 8300000, guid: bc577955d4028aa4dac8df122713f4bb, type: 3}
+    passiveTheme: 0
     volume: 0.1
     pitch: 1
     loop: 0
   - sfx: 1
     name: Crash
     clip: {fileID: 8300000, guid: 8579f2016b7b8af4299862b60f315274, type: 3}
+    passiveTheme: 0
     volume: 0.1
     pitch: 1
     loop: 0
   - sfx: 1
     name: Points
     clip: {fileID: 8300000, guid: 85639eac6ea9e1448a7ff9445ce7edc0, type: 3}
+    passiveTheme: 0
     volume: 0.1
     pitch: 1
     loop: 0
   sfxSource: {fileID: 2055716223}
   passiveScore: {fileID: 2055716222}
   drivingScore: {fileID: 2055716224}
+  passiveClip: {fileID: 8300000, guid: d4a590610453bc440a8a9af6ac52f122, type: 3}
+  passiveAltClip: {fileID: 8300000, guid: f41b3c9c7da812c4ba87e0a26cf09410, type: 3}
+  drivingClip: {fileID: 8300000, guid: cca3ff8bc41038541a2581361abd1867, type: 3}
+  drivingAltClip: {fileID: 8300000, guid: a2c982b43afb9d149889a513947368b0, type: 3}
   fadeTime: 2
 --- !u!82 &2055716222
 AudioSource:
@@ -7724,11 +7739,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1e9eacebdfc95d40b33f56ad1bc2a3e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d4a590610453bc440a8a9af6ac52f122, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7884,11 +7899,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d0320b85f2ae83d4191526c821daf809, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a2c982b43afb9d149889a513947368b0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -16,6 +16,14 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource drivingScore;
     // Use this for initialization
+
+    public AudioClip passiveClip;
+
+    public AudioClip passiveAltClip;
+
+    public AudioClip drivingClip;
+
+    public AudioClip drivingAltClip;
     public float fadeTime;
     void Awake()
     {
@@ -52,24 +60,23 @@ public class AudioManager : MonoBehaviour
             sfxSource.Play();
         } else
         {
-            /* scoreSource.clip = s.clip;
-            scoreSource.volume = s.volume;
-            scoreSource.pitch = s.pitch;
-            scoreSource.loop = s.loop; */
 
-            if (s.clip == passiveScore.clip){
+            if (s.passiveTheme){                
                 //passiveScore.volume = s.volume;
                 passiveScore.pitch = s.pitch;
                 passiveScore.loop = s.loop;
-                StartCoroutine(FadeIn(passiveScore, fadeTime));
+                StartCoroutine(FadeIn(passiveScore, fadeTime, passiveClip, passiveAltClip));
                 StartCoroutine(FadeOut(drivingScore, fadeTime));
+                
             } else
             {
                 //drivingScore.volume = s.volume;
                 drivingScore.pitch = s.pitch;
                 drivingScore.loop = s.loop;
-                StartCoroutine(FadeIn(drivingScore, fadeTime));
+                StartCoroutine(FadeIn(drivingScore, fadeTime, drivingClip, drivingAltClip));
                 StartCoroutine(FadeOut(passiveScore, fadeTime));
+                
+                
             }
         }
         
@@ -92,8 +99,12 @@ public class AudioManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    public static IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
+    public static IEnumerator FadeIn(AudioSource audioSource, float fadeTime, AudioClip clip1, AudioClip clip2)
     {          
+        if (audioSource.clip == clip1)
+            audioSource.clip = clip2;
+        else
+            audioSource.clip = clip1;
         //audioSource.volume = 0;
         audioSource.Play();
         while (audioSource.volume < 0.5f) 
