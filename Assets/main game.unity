@@ -7725,10 +7725,10 @@ MonoBehaviour:
   sfxSource: {fileID: 2055716223}
   passiveScore: {fileID: 2055716222}
   drivingScore: {fileID: 2055716224}
-  passiveClip: {fileID: 8300000, guid: d4a590610453bc440a8a9af6ac52f122, type: 3}
-  passiveAltClip: {fileID: 8300000, guid: f41b3c9c7da812c4ba87e0a26cf09410, type: 3}
-  drivingClip: {fileID: 8300000, guid: cca3ff8bc41038541a2581361abd1867, type: 3}
-  drivingAltClip: {fileID: 8300000, guid: a2c982b43afb9d149889a513947368b0, type: 3}
+  passiveClip: {fileID: 8300000, guid: 4779602975879124baaed3bc55771b9b, type: 3}
+  passiveAltClip: {fileID: 8300000, guid: 0c97af828fd12234aa1c9a4b4b45c9dd, type: 3}
+  drivingClip: {fileID: 8300000, guid: 1a6a925d841189f44bc62c2cea8b3e22, type: 3}
+  drivingAltClip: {fileID: 8300000, guid: 5d4bcc981ca78b24fae45a5ccd3eb7b3, type: 3}
   fadeTime: 2
 --- !u!82 &2055716222
 AudioSource:
@@ -7739,7 +7739,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d4a590610453bc440a8a9af6ac52f122, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4779602975879124baaed3bc55771b9b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -7899,7 +7899,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a2c982b43afb9d149889a513947368b0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d4bcc981ca78b24fae45a5ccd3eb7b3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
