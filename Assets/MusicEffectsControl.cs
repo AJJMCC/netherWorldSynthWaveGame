@@ -30,8 +30,14 @@ public class MusicEffectsControl : MonoBehaviour {
     public Gradient CarcolorGradient;
 
     public Material EnCarMat;
+    public Material EnCarMat2;
     public float EnCarMultiplier;
     public Gradient EnCarcolorGradient;
+
+    public Material EnCarMat3;
+    public float EnCarMultiplier3;
+    public Gradient EnCarcolorGradient3;
+
 
     public Material PointMat;
     public float PointMultiplier;
@@ -43,8 +49,10 @@ public class MusicEffectsControl : MonoBehaviour {
     public float MaxSolidPalm;
     public float SolidPalmAudioMultiplier;
 
-
-
+    public Material Skybox;
+    public float SunColMultiplier;
+    public Gradient SunChangeBotGradient;
+    public Gradient SunChangeTopGradient;
 
 
     void Start ()
@@ -98,9 +106,10 @@ public class MusicEffectsControl : MonoBehaviour {
         PointMatColour();
 
         TreeSolidColour();
+        ChangeSunCol();
 
 
-       
+
     }
 
     void UpdateSideWalkEmission()
@@ -124,9 +133,11 @@ public class MusicEffectsControl : MonoBehaviour {
     void EnCarControl()
     {
         float ChangeValue1 = rmsValue * EnCarMultiplier;
-
+        EnCarMat2.SetColor("_EmissionColor", EnCarcolorGradient.Evaluate((ChangeValue1)));
         //float ClampedValue1 = Mathf.Clamp(ChangeValue1, CarMinEmission, CarMaxEmission);
-        EnCarMat.SetColor("_Color", EnCarcolorGradient.Evaluate((ChangeValue1)));
+        EnCarMat.SetColor("_EmissionColor", EnCarcolorGradient.Evaluate((ChangeValue1)));
+        float ChangeValue2 = rmsValue * EnCarMultiplier3 ;
+        EnCarMat3.SetColor("_EmissionColor", EnCarcolorGradient3.Evaluate((ChangeValue2)));
 
     }
 
@@ -147,5 +158,13 @@ public class MusicEffectsControl : MonoBehaviour {
         Color SolidMat = new Color(255, 143, 0, CmapledSolid);
         //  Debug.Log(SolidPalmIntensity);
         SolidPalm.SetColor("_TintColor", SolidMat);
+    }
+
+    void ChangeSunCol()
+    {
+
+        float ChangeValue = (rmsValue * SunColMultiplier);
+        Skybox.SetColor("_ColorSun2",SunChangeTopGradient.Evaluate(ChangeValue));
+        //Skybox.SetColor("_ColorSun1", SunChangeBotGradient.Evaluate(ChangeValue));
     }
 }

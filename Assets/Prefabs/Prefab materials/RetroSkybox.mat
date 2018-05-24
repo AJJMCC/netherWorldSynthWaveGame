@@ -83,7 +83,7 @@ Material:
     - _StripesSpeed: 0.25
     - _StripesWidth: 0.013
     - _SunEnabled: 1
-    - _SunExponent: 3.32
+    - _SunExponent: 3.38
     - _SunPitch: 96
     - _SunSize: 0.0048
     - _SunYaw: 166.5
@@ -98,8 +98,8 @@ Material:
     - _ColorGround2: {r: 0, g: 0.6, b: 0.74, a: 0}
     - _ColorStripe: {r: 0, g: 0.7, b: 0.74, a: 0}
     - _ColorSun: {r: 0.97, g: 0.67, b: 0.51, a: 0}
-    - _ColorSun1: {r: 1, g: 0.8665809, b: 0.30147058, a: 0}
-    - _ColorSun2: {r: 1, g: 0.30882356, b: 0, a: 0}
+    - _ColorSun1: {r: 1, g: 0.81170994, b: 0.38261387, a: 1}
+    - _ColorSun2: {r: 0.73193693, g: 0.2727437, b: 0.26537836, a: 1}
     - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SunDirection: {r: 0.23216654, g: -0.10452851, b: -0.96704316, a: 0}

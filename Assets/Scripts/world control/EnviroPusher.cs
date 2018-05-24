@@ -9,6 +9,7 @@ public class EnviroPusher : MonoBehaviour {
 
     //this is the speed we change 
     private float BasePushSpeed;
+    private float BuildingsAreAnnoyingSpeed;
 
     [Tooltip("this is where the things will die if they cross it")]
     public float KillZPos;
@@ -116,6 +117,7 @@ public class EnviroPusher : MonoBehaviour {
         RealTreeTime = TimeBetweenTrees;
         RealBuildTime = Random.Range(MinBuildTimer, MaxBuildTimer);
         RealJetTime = Random.Range(MinJetTimer, MaxJetTimer);
+        BuildingsAreAnnoyingSpeed  = GetComponent< WorldControl > ().PassiveSpeed;
     }
 
 
@@ -123,6 +125,7 @@ public class EnviroPusher : MonoBehaviour {
     public void PassiveActivate()
     {
         BasePushSpeed = GetComponent<WorldControl>().RealSpeed;
+       
         CarMoveSpeedExponent = CarSpeedPassiveDifference;
         MaxCarTimer = PassiveMaxCarTimer;
         MinCarTimer = PassiveMinCarTimer;
@@ -200,7 +203,7 @@ public class EnviroPusher : MonoBehaviour {
 
         foreach (GameObject I in Buildings)
         {
-            I.transform.Translate(-Vector3.forward * (BasePushSpeed * BuildMoveSpeedExponent) * Time.deltaTime);
+            I.transform.Translate(-Vector3.forward * (BuildingsAreAnnoyingSpeed * BuildMoveSpeedExponent) * Time.deltaTime);
         }
 
         foreach (GameObject I in Jets)
