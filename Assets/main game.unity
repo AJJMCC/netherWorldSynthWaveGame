@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.086249955, g: 0.035714038, b: 0.086365305, a: 1}
+  m_IndirectSpecularColor: {r: 0.09256863, g: 0.038427338, b: 0.08555464, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1892,6 +1892,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1902,8 +1903,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378463926}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -8.360001, z: -107}
+  m_LocalRotation: {x: -0.1578925, y: 0.32953203, z: 0.05599687, w: 0.9291625}
+  m_LocalPosition: {x: -28.566645, y: -8.448636, z: -100.59621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887993985}
@@ -3991,6 +3992,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -4001,8 +4003,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 885154968}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -8.360001, z: -107}
+  m_LocalRotation: {x: -0.1578925, y: 0.32953203, z: 0.05599687, w: 0.9291625}
+  m_LocalPosition: {x: -28.566645, y: -8.448636, z: -100.59621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887993985}
@@ -4814,8 +4816,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080768606}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.87, y: -8.360001, z: -7}
+  m_LocalRotation: {x: -0.0668101, y: 0.71598136, z: 0.0691785, w: 0.69146323}
+  m_LocalPosition: {x: -28.566654, y: -8.448639, z: -0.59620667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -4852,6 +4854,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5514,6 +5517,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -6109,6 +6113,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -7845,7 +7850,7 @@ MonoBehaviour:
     name: Crash
     clip: {fileID: 8300000, guid: 8579f2016b7b8af4299862b60f315274, type: 3}
     passiveTheme: 0
-    volume: 0.1
+    volume: 0.5
     pitch: 1
     loop: 0
   - sfx: 1
