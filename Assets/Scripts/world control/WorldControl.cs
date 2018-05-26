@@ -19,6 +19,8 @@ public class WorldControl : MonoBehaviour {
     public float RoadPassiveWidth;
     public float RoadDriveWidth;
 
+    //car trails we turn on when we are driving!
+    public LineRenderer[] trails;
    
 
     //control the tunnel here
@@ -62,6 +64,8 @@ public class WorldControl : MonoBehaviour {
 
         //tell the worldscroller to change the speed of the road
 
+        
+
         GetComponent<EnviroPusher>().PassiveActivate();
 
         GetComponent<PointSystem>().PassiveStart();
@@ -82,6 +86,11 @@ public class WorldControl : MonoBehaviour {
             StartCoroutine(WidenRoad(Road, RoadDriveWidth, RoadPassiveWidth, TransitionEffectTime));
             StartCoroutine(WidenTunnel(Tunnel, 1, 0, TransitionEffectTime));
             Invoke("FullyFlattenTUnnel", TransitionEffectTime);
+
+            foreach (LineRenderer I in trails)
+            {
+                I.enabled = false;
+            }
         }
 
         foreach (GameObject I in ObjectsToLower)
@@ -127,10 +136,10 @@ public class WorldControl : MonoBehaviour {
     {
         StartCoroutine(WidenTunnel(Tunnel, 0, 1, TransitionEffectTime));
         StartCoroutine(WidenRoad(Road, RoadPassiveWidth, RoadDriveWidth, TransitionEffectTime));
-   
-        
-      //  Debug.Log("should have started the coroutine");
-        foreach(GameObject I in ObjectsToLower)
+        Invoke("turnontrails", (TransitionEffectTime/2));
+
+        //  Debug.Log("should have started the coroutine");
+        foreach (GameObject I in ObjectsToLower)
         {
           
             StartCoroutine(SinkSideWalks(I,PassiveHeight,DriveHeight,TransitionEffectTime));
@@ -142,6 +151,14 @@ public class WorldControl : MonoBehaviour {
             StartCoroutine(RaiseSideWalks(I, Set2PassiveHeight, DriveHeight + 0.2f, TransitionEffectTime));
         }
         
+    }
+
+    void turnontrails()
+    {
+        foreach (LineRenderer I in trails)
+        {
+            I.enabled = true;
+        }
     }
 
     IEnumerator WidenTunnel(GameObject _Tunnel, float StartWidth, float EndWidth, float TIme)
