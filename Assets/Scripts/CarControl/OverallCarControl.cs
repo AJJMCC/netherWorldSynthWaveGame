@@ -179,7 +179,7 @@ public class OverallCarControl : MonoBehaviour {
         while (timer <= time)
         {
             car.transform.localPosition = new Vector3(Mathf.Lerp(car.transform.localPosition.x, _RightX, transitioncurve.Evaluate(timer / time)),0,0);
-
+            car.transform.rotation = Quaternion.Lerp(car.transform.rotation,Quaternion.Euler(Vector3.zero), transitioncurve.Evaluate(timer / time));
             timer += Time.deltaTime;
 
             yield return null;

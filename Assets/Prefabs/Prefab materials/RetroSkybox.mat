@@ -99,7 +99,7 @@ Material:
     - _ColorStripe: {r: 0, g: 0.7, b: 0.74, a: 0}
     - _ColorSun: {r: 0.97, g: 0.67, b: 0.51, a: 0}
     - _ColorSun1: {r: 1, g: 0.81170994, b: 0.38261387, a: 1}
-    - _ColorSun2: {r: 0.73193693, g: 0.2727437, b: 0.26537836, a: 1}
+    - _ColorSun2: {r: 0.84624606, g: 0.36092702, b: 0.20495291, a: 1}
     - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SunDirection: {r: 0.23216654, g: -0.10452851, b: -0.96704316, a: 0}
