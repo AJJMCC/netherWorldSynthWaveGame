@@ -46,7 +46,7 @@ public class WorldControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
       //  ScrollScript = GetComponent<WorldScroller>();
-
+        Cursor.visible = false;
     }
 	
 	// Update is called once per frame
