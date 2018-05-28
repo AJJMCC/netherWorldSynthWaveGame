@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-
 [ExecuteInEditMode]
+
 public class ShaderEffect_BleedingColors : MonoBehaviour {
 
 	public float intensity = 3;

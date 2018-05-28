@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08850599, g: 0.03661367, b: 0.08602824, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1896,7 +1896,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1907,8 +1906,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378463926}
-  m_LocalRotation: {x: -0.003131423, y: 0.76064146, z: 0.0036679378, w: 0.6491543}
-  m_LocalPosition: {x: -43.431103, y: -29.172195, z: -47.332764}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.87, y: -8.360001, z: -107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887993985}
@@ -4195,7 +4194,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5019,8 +5017,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080768606}
-  m_LocalRotation: {x: -0.003131423, y: 0.76064146, z: 0.0036679378, w: 0.6491543}
-  m_LocalPosition: {x: -43.431103, y: -29.172195, z: 52.667236}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.87, y: -8.360001, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -5057,7 +5055,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5603,6 +5600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1326140105}
   - component: {fileID: 1326140104}
+  - component: {fileID: 1326140106}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -5659,6 +5657,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1326140106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326140103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6527e54d323df64fa3d39eb41f85998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364744302
 GameObject:
   m_ObjectHideFlags: 0
@@ -5682,8 +5691,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364744302}
-  m_LocalRotation: {x: -0.19801632, y: 0.46184862, z: 0.10659153, w: 0.8579765}
-  m_LocalPosition: {x: -2.173946, y: -5.454346, z: -0.21028137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.87, y: -8.360001, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750601239}
@@ -5720,7 +5729,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -6370,9 +6378,9 @@ MonoBehaviour:
   CruisingTextParent: {fileID: 2124619540}
   TurnAngle: 9
   TimeBetweenTurns: 0.2
-  CruisingPosition: {x: 0, y: 162.86, z: 0}
+  CruisingPosition: {x: 0, y: -131.41, z: 0}
   DrivingPosition: {x: 0, y: -436.3, z: 0}
-  Startscale: 1
+  Startscale: 0.5
   Endscale: 0
   TransitionTime: 0.5
   ScoreTextMaterial: {fileID: 2100000, guid: a0f566a0ed46d654fb300be8a7164ffb, type: 2}
@@ -6539,7 +6547,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -8865,7 +8872,7 @@ RectTransform:
   m_GameObject: {fileID: 2124619539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.65, z: 0.5}
   m_Children:
   - {fileID: 2049124998}
   - {fileID: 524494952}
@@ -8877,7 +8884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 162.86}
+  m_AnchoredPosition: {x: 0, y: -131.41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2124619541

@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
-
 [ExecuteInEditMode]
+
+
 public class ShaderEffect_CRT : MonoBehaviour {
 
 	public float scanlineIntensity = 100;

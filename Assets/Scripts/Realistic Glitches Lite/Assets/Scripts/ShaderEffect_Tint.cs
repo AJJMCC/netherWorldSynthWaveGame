@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
-
 [ExecuteInEditMode]
+
+
 public class ShaderEffect_Tint : MonoBehaviour {
 
 	public float y = 1;
